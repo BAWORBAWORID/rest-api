@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Alfa | Rest Api</title>
+  <link rel="stylesheet" href="vendors/typicons/typicons.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+  <link rel="shortcut icon" href="images/faces/face3.jpg" />
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script>alert('Hai Kak Selamat Datang Di Rest API Alfa, Kalau Mau Request Bisa Hubungi +6287715768324. Terimakasih Sudah Berkunjung')
+  </script>
+  <style>
+  form {
+    width: 300px;
+    height: fit-content;
+    display: block;
+    text-align: center;
+}
+
+input[type=text] {
+    width: 200px;
+    outline: none;
+    padding: 7px 5px 7px 5px;
+    border: 2px solid #cecece;
+    background: none;
+    margin: 5px;
+    border-radius: 5px;
+    color: #cecece;
+    text-align: center;
+}
+
+input[type=text]:focus {
+    border: 2px solid black;
+    outline: none;
+    text-align: center;
+}
+
+input[type=submit] {
+    width: 215px;
+    padding: 7px 5px 7px 5px;
+    background: #0084ff;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+  </style>
+</head>
+<body onload="getvisitor();">
+  <div class="row" id="proBanner">
+    <div class="col-12">
+      <span class="d-flex align-items-center purchase-popup">
+        <p>Eror ?, Chat My WhatsApp</p>
+        <a href="https://wa.me/6287715768324?text=Hallo%20Bang" target="_blank" class="btn download-button purchase-button ml-auto">Chat</a>
+        <i class="typcn typcn-delete-outline" id="bannerClose"></i>
+      </span>
+    </div>
+  </div>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex justify-content-center">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <ul class="navbar-nav mr-lg-2">
+
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
+              <i class="typcn typcn-message mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="images/faces/face1.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal">Elaina
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    Hai Ayang, Yang Semangat Ya
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal">Tokisaki Kurumi
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    Semangat ayang
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                    <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
+                </div>
+                <div class="preview-item-content flex-grow">
+                  <h6 class="preview-subject ellipsis font-weight-normal"> Alfa
+                  </h6>
+                  <p class="font-weight-light small-text text-muted mb-0">
+                    Kalau Mau Req Chat<br/>+6287715768324
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item dropdown mr-0">
+            <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+              <i class="typcn typcn-bell mx-0"></i>
+              <span class="count"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-success">
+                    <i class="typcn typcn-info mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Just now
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-warning">
+                    <i class="typcn typcn-cog-outline mx-0"></i>
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">Settings</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    Private message
+                  </p>
+                </div>
+              </a>
+              <a class="dropdown-item preview-item">
+                <div class="preview-thumbnail">
+                  <div class="preview-icon bg-info">
+                    <i class="typcn typcn-user mx-0"></i> 
+                  </div>
+                </div>
+                <div class="preview-item-content">
+                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                  <p class="font-weight-light small-text mb-0 text-muted">
+                    2 days ago
+                  </p>
+                </div>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="typcn typcn-th-menu"></span>
+        </button>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="typcn typcn-cog-outline"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <i class="settings-close typcn typcn-times"></i>
+          <p class="settings-heading">SIDEBAR SKINS</p>
+          <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+          <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+              <div class="badge badge-danger">new</div>
+            </a>
+          </li>
+          <!-- DOWNLOADER MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#downloader-nya" aria-expanded="false" aria-controls="downloader-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Downloader</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="downloader-nya">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="api/downloader/fbdl?url=">Facebook - Only Video</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/downloader/tiktok?url=https://vm.tiktok.com/ZSNYPqqNF/">Tiktok Hd</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/downloader/tiktokaudio?url=https://vm.tiktok.com/ZSNYPqqNF/">Tiktok Audio</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/downloader/tiktok2?url=https://vm.tiktok.com/ZSNYPqqNF/">Tiktok Dl V2</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/downloader/tiktok3?url=https://www.tiktok.com/@satokizaki/video/7280851276986961159?_d=secCgYIASAHKAESPgo8H2m2c2Zt94OsGfyoSSamY5o0wxAkL%2BwFxRHyKlczhVxxvy6ZnejPMvPUDtG9V%2FZcgVxxxk46krF8mSDUGgA%3D&_r=1&checksum=1224a67e7b2acb8b8fe767763dcb3e02b1c196a7bfb78a1e8eba21d46b2445b5&sec_uid=MS4wLjABAAAAVc4LyjJc6TZhaCK-60NWItPYgOQgYUfv-buvRMjNuxNcjz29XD9xl6OP9eow5Fzf&sec_user_id=MS4wLjABAAAA2PSy5VA9g48heMNPylbEe0X5vsq0SR3pJkpqjUpkDTejR5aVKH7HEeLOUiZBuRkA&share_app_id=1340&share_author_id=7246669464325030917&share_link_id=3754b69f-dfca-4aff-b328-3d4c6df8cc6a&sharer_language=id&timestamp=1696322545&u_code=dlgc75jc4d9mj0&ugbiz_name=Account&user_id=7028434958628865030&utm_campaign=client_share&utm_source=copy">Tiktok Dl V3/TikTok Slide</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/downloader/ighd?url=">Instagram Dl - Only Video</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/downloader/ytplay?q=preset anime">Youtube Play</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/downloader/ytplay2?q=preset anime">Yt Play2</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/downloader/kfdl?url=https://krakenfiles.com/view/V1adgA0cSe/file.html">KrakenFiles Download</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/downloader/ytdl?url=">Youtube Download</a></li>
+                 <li class="nav-item"><a class="nav-link" href="api/downloader/xnxxdl?url=https://www.xnxx.com/video-yw6vv30/kay_carter_and_stepmom_lisey_sweet_sharing_same_boyfriend_and_slobbs_his_cock_and_balls">Xnxx Download</a></li>
+                  <li class="nav-item"><a class="nav-link" href="api/downloader/xvideodl?url=https://www.xvideos.com/video26949/desperate_house_milfs">Xvideos Download</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- ISLAMIC MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#islamic-nye" aria-expanded="false" aria-controls="islamic-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Islamic</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="islamic-nye">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="api/muslim/kisahnabi">Kisah Nabi</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- GAME MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#game-nye" aria-expanded="false" aria-controls="game-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Islamic</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="game-nye">
+              <ul class="nav flex-column sub-menu">
+               <li class="nav-item"> <a class="nav-link" href="api/game?game=asahotak">Asah Otak</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=caklontong">Cak Lontong</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=family100">Family 100</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=flag">Tebak Bendera</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=lengkapikalimat">Lengkapi Kalimat</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=siapakahaku">Siapakah Aku</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=susunkata">Susun Kata</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebakbendera">Tebak Bendera 2</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebakchara">Tebak Character</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebakgambar">Tebak Gambar</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebakgame">Tebak Game</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebakjenaka">Tebak Jenaka</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebakkabupaten">Tebak Kabupaten</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebakkalimat">Tebak Kalimat</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebakkata">Tebak Kata</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebakkimia">Tebak Kimia</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebaklagu">Tebak Lagu</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebaklirik">Tebak Lirik</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tebaktebakan">Tebak Tebakan</a></li>
+ <li class="nav-item"> <a class="nav-link" href="api/game?game=tekateki">Teka Teki</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- SEARCH MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#search-nya" aria-expanded="false" aria-controls="search-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Search</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="search-nya">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="api/search/unsplash?text=cosplay">Unsplash</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/search/wallflare?text=cosplay">Wall Flare</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/search/ytsearch?q=preset anime">Youtube Search</a></li>
+                <li class="nav-item"><a class="nav-link" href="api/search/xnxx?q=Milf">Xnxx Search</a></li>
+                 <li class="nav-item"><a class="nav-link" href="api/search/xvideos?text=Milf">Xvideo Search</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- AI MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#islamic-nya" aria-expanded="false" aria-controls="islamic-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Ai</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="islamic-nya">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="api/ai/gpt?text=Siapa itu Nicola Tesla">Chat Gpt</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/ai/cai?text=hai%20kamu%20cantik&name=zetta">Character AI</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/ai/txt2img?text=cat in space, hd, 4k">Text To Image</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- ASUPAN MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#asupan-nya" aria-expanded="false" aria-controls="search-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Asupan</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="asupan-nya">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=asupan">Asupan</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=anony">Anony</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=bocil">Bocil</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=cecan">Cecan</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=euni">Euni</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=geayubi">Geayubi</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=harley">Harley</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=hijaber">Hijab</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=natajadeh">Nata</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=rikagusriani">Rika</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=santuy">Santuy</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/asupan?type=ukhty">Ukhty</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- ANIME MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#anime-nya" aria-expanded="false" aria-controls="anime-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Anime</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="anime-nya">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="api/anime/ongoing">Ongoing</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/anime/otaku?text=kage no">Otaku Search</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/anime/wibudesu?text=kage no">Wibu Desu</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/anime/wibudl?text=https://wibudesu.co/shadow-garden-sub-indo/">Wibu Desu Download</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/anime/mynimeku?text=kage no">Mynime Search</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/anime/mynimedl?url=">Mynime Dl</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- RANDOM MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#maker-nya" aria-expanded="false" aria-controls="maker-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Random</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="maker-nya">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="api/random/hentai">Random Hentai</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/random/bokep">Bokep</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/random/katajawa">Kata Jawa</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- CECAN MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#cecan-nya" aria-expanded="false" aria-controls="cecan-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Cecan</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="cecan-nya">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="api/cecan?type=cecan">Cecan</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/cecan?type=cecan2">Cecan 2</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/cecan?type=china">China</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/cecan?type=indonesia">Indonesia</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/cecan?type=malaysia">Malaysia</a></li>
+             <li class="nav-item"> <a class="nav-link" href="api/cecan?type=japan">Japan</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/cecan?type=korea">Korea</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/cecan?type=thailand">Thailand</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/cecan?type=vietnam">Vietnam</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- RANDOM IMAGE ANIME -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#rananime-nya" aria-expanded="false" aria-controls="rananime-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Random Image</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="rananime-nya">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="api/random/image?name=akira">Akira</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=akiyama">Akiyama</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=ana">Ana</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=asuna">Asuna</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=ayuzawa">Ayuzawa</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=boruto">Boruto</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=chitanda">Chitanda</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=chitoge">Chitoge</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=cosplay">Cosplay</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=deidara">Deidara</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=doraemon">Doraemon</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=elaina">Elaina</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=emilia">Emilia</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=erza">Erza</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=fanart">Fans Art</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=genshin">Genshin</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=gremory">Gremory</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=hestia">Hestia</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=hinata">Hinata</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=husbu">Husbu</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=icon">Iconic</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=inori">Inori</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=isuzu">Isuzu</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=itachi">Itachi</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=itori">Itori</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kaga">Kaga</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kagura">Kagura</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kaguya">Kaguya</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kakasih">Kakashi</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kaneki">Kaneki</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kaori">Kaori</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=keneki">Keneki</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kosaki">Kosaki</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kotori">Kotori</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kuriyama">Kuriyama</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kuroha">Kuroha</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=kurumi">Kurumi</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=loli">Loli</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=madara">Madara</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=megumin">Megumin</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=mikasa">Mikasa</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=miku">Miku</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=minato">Minato</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=naruto">Naruto</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=natsukawa">Natsu Kawa</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=neko">Neko</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=nezuko">Nezuko</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=nishiyama">Nishiyama</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=pokemon">Pokemon</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=rem">Rem</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=rize">Rize</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=sagiri">Sagiri</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=sakura">Sakura</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=sasuke">Sasuke</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=shina">Shina</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=shinka">Shinka</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=shizuka">Shizuka</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=shota">Shota</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=simp">Simp</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=tomori">Tomori</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=toukachan">Touka</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=tsunade">Tsunade</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=yatogami">Yatogami</a></li>
+<li class="nav-item"> <a class="nav-link" href="api/random/image?name=yuki">Yuki</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- NSFW MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#nsfw-nye" aria-expanded="false" aria-controls="maker-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Nsfw</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="nsfw-nye">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="api/nsfw/menfox">Menfox</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/nsfw/arty">Arty</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/nsfw/ggs">Ggs</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/nsfw/mikomin">Mikomin</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/nsfw/aracu">Archu</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/nsfw/lisa">Lisa</a></li>
+              <li class="nav-item"> <a class="nav-link" href="api/nsfw/hane">Hane Ame</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- TOOLS MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#tools-nye" aria-expanded="false" aria-controls="maker-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Tools</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tools-nye">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="api/tools/stalktt?user=naysyiilaa">Stalk TikTok</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/tools/stalkig?user=senyamiku">Stalk Ig</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/tools/getnumb?country=Spain">Get Number</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/tools/getmess?country=Spain&number=34651714125">Get Message</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/tools/ssweb?url=https://google.com">Ssweb</a></li>
+       <li class="nav-item"> <a class="nav-link" href="api/tools/inspect?url=https://google.com">Inspect</a></li>
+       <li class="nav-item"> <a class="nav-link" href="api/tools/axiosget?url=https://google.com">Axios Get</a></li>
+              </ul>
+            </div>
+          </li>
+          <!-- PHOTO OXY MENU -->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#photooxy-nya" aria-expanded="false" aria-controls="photooxy-nya">
+              <i class="typcn menu-icon"></i>
+              <span class="menu-title">Photooxy</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="photooxy-nya">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/dark-metal?text=Alfa">Dark Metal</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/white-stone?text=Alfa">White Stone</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/shadow?text=Alfa">Shadow</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/white-cube?text=Alfa">White Cube</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/gradient?text=Alfa">Gradient</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/fur-text?text=Alfa">Fur Text</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/flaming?text=Alfa">Flaming</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/scary-cemetery?text=Alfa">Scary Cemetery</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/harry-potter?text=Alfa">Harry Potter</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/3d-wood?text=Alfa">3d Wood</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/illuminated-metallic?text=Alfa">Illuminated Metallic</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/put-your?text=Alfa">Put Your</a></li>
+                <li class="nav-item"> <a class="nav-link" href="api/photooxy/8-bit?text1=turu&text2=sek">8 Bit</a></li>
+              </ul>
+            </div>
+          </li>
+
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+
+         
+
+          <div class="row">
+          <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+                    <div>
+                      <p class="mb-2 text-md-center text-lg-left">Status Creator</p>
+                      <h6 class="mb-0">Nama: Alfa<br/>Hobi: Coding<br/>Status: Jomblo (Gak Minat Pacaran :v, Fokus Masa Depan 😁)<br/>Whatsapp: <a href="https://wa.me/6287715768324?text=Hai Bang 😁" target="_blank">087715768324</a>
+                      <br/>
+                      <br/><br/>Notes: Mimpi akan jadi kenyataan jika kita punya keberanian</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+                    <div>
+                      <p class="mb-2 text-md-center text-lg-left">Total Visitor</p>
+                      <h6 class="mb-0" id="visitor">00</h6>
+                    </div>
+                    <i class="typcn typcn-eye-outline icon-xl text-primary"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+                    <div>
+                      <p class="mb-2 text-md-center text-lg-left">Ip Address</p>
+                      <h6 class="mb-0" id="ip">00</h6>
+                    </div>
+                    <i class="typcn typcn-wi-fi icon-xl text-primary"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+                    <div>
+                      <p class="mb-2 text-md-center text-lg-left">Date</p>
+                      <h6 class="mb-0" id="tanggal">00</h6>
+                    </div>
+                    <i class="typcn typcn-calendar-outline icon-xl text-primary"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+                    <div>
+                      <p class="mb-2 text-md-center text-lg-left">Time & Ucapan</p>
+                      <h6 class="mb-0" id="Clock">Loading...</h6>
+                      <h6 class="mb-0" id="Ucapan">Loading...</h6>
+                    </div>
+                    <i class="typcn typcn-time icon-xl text-primary"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+                    <div>
+                      <p class="mb-2 text-md-center text-lg-left">Battery</p>
+                      <h6 class="mb-0" id="percentageLevel">Loading...</h6>
+                      <h6 class="mb-0" id="batteryLevel"></h6>
+                    </div>
+                    <i class="typcn typcn-battery-charge icon-xl text-primary"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between justify-content-md-center justify-content-xl-between flex-wrap mb-4">
+                    <div>
+                      <p class="mb-2 text-md-center text-lg-left">Request Fitur / Report Fitur</p>
+                      <h6 class="mb-0">Masukan No Wa Agar Owner Bisa Chat Kalau Fitur Sudah Di Add/Fix</h6>
+                       <form>
+        <input type="text" id="nama" placeholder="Nama" />
+        <input type="text" id="email" placeholder="Email / No Wa" />
+        <input type="text" id="pesan" placeholder="Request" />
+        <input type="submit" id="kirim" value="KIRIM" onclick="kirimPesan()" />
+    </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+             
+          </div>
+          
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2023 <a href="https://instagram.com/Alfa_/" class="text-muted" target="_blank">Alfa</a></span>
+                    </div>
+                </div>    
+            </div>        
+        </footer>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- base:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="js/off-canvas.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/000.js"></script>
+  <script src="js/001.js"></script>
+  <script src="js/002.js"></script>
+  <script src="js/003.js"></script>
+  <script src="js/004.js"></script>
+  <script src="js/005.js"></script>
+  <script>
+  function kirimPesan() {
+
+    var nama = document.getElementById('nama');
+    var email = document.getElementById('email');
+    var pesan = document.getElementById('pesan');
+
+    var gabungan = 'Nama%3A%0A' + nama.value + '%0AEmail%3A%0A' + email.value + '%0APesan%3A%0A' + pesan.value;
+
+    var token = '6523163938:AAE6zCeOWNHOSrETQz_V4z-q8M82hVL0ua8'; // Ganti dengan token bot yang kamu buat
+    var grup = '5888076846'; // Ganti dengan chat id dari bot yang kamu buat
+
+    $.ajax({
+        url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${grup}&text=${gabungan}&parse_mode=html`,
+        method: `POST`,
+    })
+    alert('Request / Report Fitur Telah Terkirim Ke Owner')
+}
+  </script>
+</body>
+
+</html>
+
